@@ -22,7 +22,7 @@ public class SecurityConfig {
                         .requestMatchers(PathRequest.toH2Console()).permitAll()
 
                         .requestMatchers(HttpMethod.GET,
-                                "/", "/about", "/contacts", "/login",
+                                "/", "/about", "/contacts", "/faq", "/login",
                                 "/tickets/new", "/tickets/*/success"
                         ).permitAll()
                         .requestMatchers(HttpMethod.POST, "/tickets").permitAll()
