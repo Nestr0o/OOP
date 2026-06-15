@@ -19,7 +19,6 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                        .requestMatchers(PathRequest.toH2Console()).permitAll()
 
                         .requestMatchers(HttpMethod.GET,
                                 "/", "/about", "/contacts", "/faq", "/login",
@@ -29,9 +28,6 @@ public class SecurityConfig {
 
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
-                )
-                .csrf(csrf -> csrf
-                        .ignoringRequestMatchers(PathRequest.toH2Console())
                 )
                 .headers(headers -> headers
                         .frameOptions(frame -> frame.sameOrigin())
